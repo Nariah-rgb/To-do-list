@@ -31,10 +31,20 @@ function displayTasks() {
             'align-items-center'
         )
         //set the inner HTML of the LI with a task and remove button
-        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm' onclick='removeTask(${index})'>✓</button>` 
+        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm' id='enter' onclick='removeTask(${index})'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
 
 
 };
+
+function removeTask(index) {
+    tasks.splice(index,1)
+    displayTasks()
+}
+
+document.getElementById('clearTasksBtn').addEventListener('click', function () {
+    tasks = []
+    displayTasks()
+})
