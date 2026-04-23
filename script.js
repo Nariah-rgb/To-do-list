@@ -31,7 +31,7 @@ function displayTasks() {
             'align-items-center'
         )
         //set the inner HTML of the LI with a task and remove button
-        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm' id='enter' onclick='removeTask(${index})'> ✓ </button>` 
+        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm ms-5' id='enter' onclick='removeTask(${index})'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
@@ -47,4 +47,10 @@ function removeTask(index) {
 document.getElementById('clearTasksBtn').addEventListener('click', function () {
     tasks = []
     displayTasks()
-})
+});
+
+document.getElementById("taskInput").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            document.getElementById('addTaskBtn').click()
+        }
+    });

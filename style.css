@@ -4,6 +4,14 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+img {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
 h2 {
     font-size: 100px;
     font-family: "pain-de-mie", sans-serif;
