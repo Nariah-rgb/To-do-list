@@ -35,6 +35,32 @@ p {
     font-style: normal;
 }
 
+.list-group-item {
+    background-color: #fff0f0;
+    font-family: "diazo-mvb-ex-cond", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+     border-radius: 30px;
+    margin-bottom: 20px;
+    border: 2px solid #BDE0FE;
+        box-shadow: 0 6px 0 #FFC8DD;
+
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+    background: #b18597;
+}
+
+hr {
+    height: 3px;
+    color: #ed1d61;
+    background: #ed1d61;
+    font-size: 0;
+    border: 0;
+}
+
 /* https://uiverse.io/Madflows/terrible-catfish-72 */
 #addTaskBtn {
  position: relative;
@@ -119,6 +145,8 @@ p {
  font-family: inherit;
  font-size: 10px;
  border-radius: 999px;
+ margin-top: 20px;
+ margin-bottom: 20px;
 }
 
 #clearTasksBtn {

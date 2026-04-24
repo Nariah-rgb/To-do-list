@@ -31,12 +31,13 @@ function displayTasks() {
             'align-items-center'
         )
         //set the inner HTML of the LI with a task and remove button
-        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm ms-5' id='enter' onclick='removeTask(${index})'> ✓ </button>` 
+        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm ms-5 m-2' id='enter' onclick='toggleComplete(this)'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
-
-
+    let counter = document.getElementById('taskCounter');
+    counter.textContent = `${tasks.length} task${tasks.length !== 1 ? 's' : ''}`;
+    updateCounter();
 };
 
 function removeTask(index) {
@@ -54,3 +55,19 @@ document.getElementById("taskInput").addEventListener("keypress", function (even
             document.getElementById('addTaskBtn').click()
         }
     });
+
+li.classList.toggle('completed');
+function toggleComplete(button) {
+    let li = button.parentElement;
+    li.classList.toggle('completed');
+    updateCounter();
+};
+
+function updateCounter() {
+    let total = tasks.length;
+    let completed = document.querySelectorAll('.completed').length;
+    let task = total - completed;
+
+    document.getElementById('taskCounter').textContent =
+        `${task} task | ${completed} completed`;
+};
