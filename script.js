@@ -40,7 +40,7 @@ function displayTasks() {
         li.classList.add('completed')
     };
         //set the inner HTML of the LI with a task and remove button
-        li.innerHTML = `${task} <button class= 'enter btn btn-success btn-sm ms-5 m-2' onclick='toggleComplete(${index})'> ✓ </button>` 
+        li.innerHTML = `${task} <button class= 'enter btn btn-sm ms-5 m-2' onclick='toggleComplete(${index})'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
@@ -85,8 +85,8 @@ function updateCounter() {
     // update the task counter text content with the remaining and completed tasks
     document.getElementById('taskCounter').textContent =
 
-    // AI used with ternrary operator to handle singular and plural forms of 'task' based on the remaining count
-    // used a ternary operator so, if the remaining tasks is not 1, it will display 'tasks' instead of 'task'
+    // ternary operator to handle singular and plural forms of 'task' based on the remaining count
+    // if the remaining tasks is not 1, it will display 'tasks' instead of 'task'
         `${remaining} task${remaining !== 1 ? 's' : ''} | ${completed} completed`;
 };
 
