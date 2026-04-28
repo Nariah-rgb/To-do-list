@@ -83,12 +83,11 @@ function updateCounter() {
     let remaining = total - completed;
     
     // update the task counter text content with the remaining and completed tasks
-    document.getElementById('taskCounter').textContent =
-
-    // ternary operator to handle singular and plural forms of 'task' based on the remaining count
+     // ternary operator to handle singular and plural forms of 'task' based on the remaining count
     // if the remaining tasks is not 1, it will display 'tasks' instead of 'task'
-        `${remaining} task${remaining !== 1 ? 's' : ''} | ${completed} completed`;
-};
+    document.getElementById('taskCounter').textContent = `${remaining} task${remaining !== 1 ? 's' : ''} | ${completed} completed`;
+    };
+
 
 // function to toggle the completion status of a task
 function toggleComplete(index) {
