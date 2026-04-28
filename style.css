@@ -208,7 +208,7 @@ hr {
  transform: translate3d(0, 0, -1em);
 }
 
-#enter {
+.enter {
  position: relative;
  display: inline-block;
  cursor: pointer;

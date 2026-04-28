@@ -37,7 +37,7 @@ function displayTasks() {
         li.classList.add('completed')
     };
         //set the inner HTML of the LI with a task and remove button
-        li.innerHTML = `${task} <button class= 'btn btn-success btn-sm ms-5 m-2' id='enter' onclick='toggleComplete($)'> ✓ </button>` 
+        li.innerHTML = `${task} <button class= 'enter btn btn-success btn-sm ms-5 m-2' onclick='toggleComplete($)'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
@@ -65,10 +65,10 @@ document.getElementById("taskInput").addEventListener("keypress", function (even
 function updateCounter() {
     let total = tasks.length;
     let completed = completedTasks.filter(task => task).length;
-    let task = total - completed;
-
+    let remaining = total - completed;
+    
     document.getElementById('taskCounter').textContent =
-        `${task} task | ${completed} completed`;
+        `${remaining} task${remaining !== 1 ? 's' : ''} | ${completed} completed`;
 };
 
 function toggleComplete(index) {
