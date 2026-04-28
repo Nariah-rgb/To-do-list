@@ -37,7 +37,7 @@ function displayTasks() {
         li.classList.add('completed')
     };
         //set the inner HTML of the LI with a task and remove button
-        li.innerHTML = `${task} <button class= 'enter btn btn-success btn-sm ms-5 m-2' onclick='toggleComplete($)'> ✓ </button>` 
+        li.innerHTML = `${task} <button class= 'enter btn btn-success btn-sm ms-5 m-2' onclick='toggleComplete(${index})'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
