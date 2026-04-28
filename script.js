@@ -1,4 +1,5 @@
 let tasks = [] //empty array to store tasks
+let completedTasks = []; // second array
 
 document.getElementById('addTaskBtn').addEventListener('click', function () {
     //get the value from input field
@@ -35,18 +36,17 @@ function displayTasks() {
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
-    let counter = document.getElementById('taskCounter');
-    counter.textContent = `${tasks.length} task${tasks.length !== 1 ? 's' : ''}`;
-    updateCounter();
 };
 
 function removeTask(index) {
     tasks.splice(index,1)
+    completedTasks.splice(index, 1)
     displayTasks()
 }
 
 document.getElementById('clearTasksBtn').addEventListener('click', function () {
     tasks = []
+    completedTasks = [];
     displayTasks()
 });
 
@@ -56,18 +56,16 @@ document.getElementById("taskInput").addEventListener("keypress", function (even
         }
     });
 
-li.classList.toggle('completed');
-function toggleComplete(button) {
-    let li = button.parentElement;
-    li.classList.toggle('completed');
-    updateCounter();
-};
-
 function updateCounter() {
     let total = tasks.length;
-    let completed = document.querySelectorAll('.completed').length;
+    let completed = completedTasks.filter(task => task).length;
     let task = total - completed;
 
     document.getElementById('taskCounter').textContent =
         `${task} task | ${completed} completed`;
 };
+
+function toggleComplete(index) {
+    completedTasks[index] = !completedTasks[index];
+    displayTasks();
+}
