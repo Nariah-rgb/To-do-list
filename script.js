@@ -8,6 +8,7 @@ document.getElementById('addTaskBtn').addEventListener('click', function () {
     if(taskInput) {
         //add new tasks to task array
         tasks.push(taskInput)
+        completedTasks.push(false); // add false to completedTasks array for each new task
         //clear input field value
         document.getElementById('taskInput').value = '';
         //update task list display
@@ -30,16 +31,17 @@ function displayTasks() {
             'd-flex',
             'justify-content-center',
             'align-items-center'
-        )
+        );
+
+        if (completedTasks[index]) {
+        li.classList.add('completed')
+    };
         //set the inner HTML of the LI with a task and remove button
         li.innerHTML = `${task} <button class= 'btn btn-success btn-sm ms-5 m-2' id='enter' onclick='toggleComplete($)'> ✓ </button>` 
         //append the new task list to the HTML
         taskList.appendChild(li)
     });
-    
-    if (completedTasks[index]) {
-        li.classList.add('completed')
-    };
+    updateCounter();
 };
 
 function removeTask(index) {
